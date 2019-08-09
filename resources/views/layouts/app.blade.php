@@ -17,59 +17,62 @@
 
     <!-- Open Graph data -->
     <!-- Bootstrap core CSS     -->
-    <link href="{{asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" />
+    <link href="{{asset('public/assets/css/bootstrap.min.css') }}" rel="stylesheet" />
     <!--  Material Dashboard CSS    -->
-    <link href="{{asset('assets/css/material-dashboard.css') }}" rel="stylesheet" />
+    <link href="{{asset('public/assets/css/material-dashboard.css') }}" rel="stylesheet" />
     <!--  CSS for Demo Purpose, don't include it in your project     -->
-    <link href="{{asset('assets/css/demo.css') }}" rel="stylesheet" />
+    <link href="{{asset('public/assets/css/demo.css') }}" rel="stylesheet" />
     <!--     Fonts and icons     -->
-    <link href="{{asset('assets/css/font-awesome.css') }}" rel="stylesheet" />
-    <link href="{{asset('assets/css/google-roboto-300-700.css') }}" rel="stylesheet" />
+    <link href="{{asset('public/assets/css/font-awesome.css') }}" rel="stylesheet" />
+    <link href="{{asset('public/assets/css/google-roboto-300-700.css') }}" rel="stylesheet" />
 </head>
 <body>
 
 
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
 
 
 
 
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/login') }}">
-                        <img src="{{asset('assets/img/escudo.png')}}" alt="">
-                    </a>
-                </div>
+
+
+
                   @guest
+                  <nav class="navbar navbar-primary navbar-transparent navbar-absolute">
+                      <div class="container">
+                          <div class="navbar-header">
+
+                              <a class="navbar-brand" href="login" >
+                                <h3 class="col-xs-6 col-sm-6 col-md-9 col-lg-10 ">
+                                   Comisión Estatal De Mejora Regulatoria</h3>
+                                  <h5 class="col-xs-12 col-sm-12 col-md-9 col-lg-6 ">Protesta Ciudadana</h5>
+                                   </a>
+                          </div>
+
+
+
+                  <div class="collapse navbar-collapse">
+                      <ul class="nav navbar-nav navbar-right">
+
+                          <li class="">
+                              <a href="{{ route('register') }}">
+                                  <i class="material-icons">person_add</i> Registro
+                              </a>
+                          </li>
+                          <li class=" active ">
+                              <a href="{{ route('login') }}">
+                                  <i class="material-icons">fingerprint</i> Inicio
+                              </a>
+                          </li>
+
+                      </ul>
+                  </div>
+                  </div>
+                  </nav>
 
 
 
 
 
-
-
-                  <div class="row">
-                     <div class="collapse navbar-collapse">
-                       <ul class="nav navbar-nav navbar-right">
-
-                           <div class="dropdown">
-                               <button href="#pablo" class="dropdown-toggle btn btn-default  btn-round btn-block " data-toggle="dropdown">Inicio
-                                   <b class="caret"></b>
-                               </button>
-                               <ul class="dropdown-menu dropdown-menu-left">
-                                   <li>
-                                       <a href="{{ route('login') }}">Iniciar Sesión</a>
-                                   </li>
-                                   <li>
-                                       <a href="{{ route('register') }}">Registro</a>
-                                   </li>
-
-                               </ul>
-                           </div>
-                             </div>
-                               </ul>
-                       </div>
 
 
                    </div>
@@ -84,44 +87,10 @@
                   @else
 
 
-                  <div class="row">
-                    <div class="collapse navbar-collapse">
-                      <ul class="nav navbar-nav navbar-right">
-
-                          <div class="dropdown">
-                              <button href="#pablo" class="dropdown-toggle btn btn-default btn-round btn-block " data-toggle="dropdown">  {{ Auth::user()->name }}
-                                  <b class="caret"></b>
-                              </button>
-                              <ul class="dropdown-menu dropdown-menu-left">
-                                  <li>
-                                      <a href="{{ route('logout') }}"
-                                          onclick="event.preventDefault();
-                                                   document.getElementById('logout-form').submit();">
-                                                   Salir
-                                      </a>
-                                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                          {{ csrf_field() }}
-                                      </form>
-                                  </li>
-
-
-                              </ul>
-                          </div>
-                            </div>
-                              </ul>
-                      </div>
-
-
-                    </ul>
-                </div>
-
-            </div>
-
-        </nav>
-
-
         @include('submenus')
         @endguest
+
+
 
 
 
@@ -132,48 +101,50 @@
 
 </body>
 
+
+
 <!--   Core JS Files   -->
-<script src="{{asset('assets/js/jquery-3.1.1.min.js') }}" type="text/javascript"></script>
-<script src="{{asset('assets/js/bootstrap.min.js') }}" type="text/javascript"></script>
-<script src="{{asset('assets/js/jquery-ui.min.js') }}" type="text/javascript"></script>
-<script src="{{asset('assets/js/material.min.js') }}" type="text/javascript"></script>
-<script src="{{asset('assets/js/perfect-scrollbar.jquery.min.js') }}" type="text/javascript"></script>
+<script src="{{asset('public/assets/js/jquery-3.1.1.min.js') }}" type="text/javascript"></script>
+<script src="{{asset('public/assets/js/bootstrap.min.js') }}" type="text/javascript"></script>
+<script src="{{asset('public/assets/js/jquery-ui.min.js') }}" type="text/javascript"></script>
+<script src="{{asset('public/assets/js/material.min.js') }}" type="text/javascript"></script>
+<script src="{{asset('public/assets/js/perfect-scrollbar.jquery.min.js') }}" type="text/javascript"></script>
 <!-- Forms Validations Plugin -->
-<script src="{{asset('assets/js/jquery.validate.min.js') }}"></script>
+<script src="{{asset('public/assets/js/jquery.validate.min.js') }}"></script>
 <!--  Plugin for Date Time Picker and Full Calendar Plugin-->
-<script src="{{asset('assets/js/moment.min.js') }}"></script>
+<script src="{{asset('public/assets/js/moment.min.js') }}"></script>
 <!--  Charts Plugin -->
-<script src="{{asset('assets/js/chartist.min.js') }}"></script>
+<script src="{{asset('public/assets/js/chartist.min.js') }}"></script>
 <!--  Plugin for the Wizard -->
-<script src="{{asset('assets/js/jquery.bootstrap-wizard.js') }}"></script>
+<script src="{{asset('public/assets/js/jquery.bootstrap-wizard.js') }}"></script>
 <!--  Notifications Plugin    -->
-<script src="{{asset('assets/js/bootstrap-notify.js') }}"></script>
+<script src="{{asset('public/assets/js/bootstrap-notify.js') }}"></script>
 <!--   Sharrre Library    -->
-<script src="{{asset('assets/js/jquery.sharrre.js') }}"></script>
+<script src="{{asset('public/assets/js/jquery.sharrre.js') }}"></script>
 <!-- DateTimePicker Plugin -->
-<script src="{{asset('assets/js/bootstrap-datetimepicker.js') }}"></script>
+<script src="{{asset('public/assets/js/bootstrap-datetimepicker.js') }}"></script>
 <!-- Vector Map plugin -->
-<script src="{{asset('assets/js/jquery-jvectormap.js') }}"></script>
+<script src="{{asset('public/assets/js/jquery-jvectormap.js') }}"></script>
 <!-- Sliders Plugin -->
-<script src="{{asset('assets/js/nouislider.min.js') }}"></script>
+<script src="{{asset('public/assets/js/nouislider.min.js') }}"></script>
 <!--  Google Maps Plugin    -->
 <!--<script src="https://maps.googleapis.com/maps/api/js"></script>-->
 <!-- Select Plugin -->
-<script src="{{asset('assets/js/jquery.select-bootstrap.js') }}"></script>
+<script src="{{asset('public/assets/js/jquery.select-bootstrap.js') }}"></script>
 <!--  DataTables.net Plugin    -->
-<script src="{{asset('assets/js/jquery.datatables.js') }}"></script>
+<script src="{{asset('public/assets/js/jquery.datatables.js') }}"></script>
 <!-- Sweet Alert 2 plugin -->
-<script src="{{asset('assets/js/sweetalert2.js') }}"></script>
+<script src="{{asset('public/assets/js/sweetalert2.js') }}"></script>
 <!--	Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
-<script src="{{asset('assets/js/jasny-bootstrap.min.js') }}"></script>
+<script src="{{asset('public/assets/js/jasny-bootstrap.min.js') }}"></script>
 <!--  Full Calendar Plugin    -->
-<script src="{{asset('assets/js/fullcalendar.min.js') }}"></script>
+<script src="{{asset('public/assets/js/fullcalendar.min.js') }}"></script>
 <!-- TagsInput Plugin -->
-<script src="{{asset('assets/js/jquery.tagsinput.js') }}"></script>
+<script src="{{asset('public/assets/js/jquery.tagsinput.js') }}"></script>
 <!-- Material Dashboard javascript methods -->
-<script src="{{asset('assets/js/material-dashboard.js') }}"></script>
+<script src="{{asset('public/assets/js/material-dashboard.js') }}"></script>
 <!-- Material Dashboard DEMO methods, don't include it in your project! -->
-<script src="{{asset('assets/js/demo.js') }}"></script>
+<script src="{{asset('public/assets/js/demo.js') }}"></script>
 <script type="text/javascript">
     $().ready(function() {
         demo.checkFullPageBackgroundImage();

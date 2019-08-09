@@ -6,10 +6,21 @@
 		Tip 3: you can change the color of the sidebar with data-background-color="white | black"
 -->
 
+				<div class="logo">
+					<a href="/public/home" class="simple-text logo-normal">
+						<img src="{{asset('public/assets/img/h1.png') }}" height="60" width="220"alt="">
+					</a>
+				</div>
+				<div class="logo">
+					<a href="/public/home" class="simple-text logo-normal">
+						Comisión Estatal <br> de  <br> Mejora Regulatoria
+					</a>
+				</div>
+
 				<div class="sidebar-wrapper">
 						<div class="user">
 								<div class="photo">
-										<img src="{{asset('assets/img/card-1.png')}}" />
+										<img src="{{asset('public/assets/img/card-1.png')}}" />
 								</div>
 								<div class="info">
 										<a data-toggle="collapse" href="#collapseExample" class="collapsed">
@@ -19,11 +30,22 @@
 										<div class="collapse" id="collapseExample">
 												<ul class="nav">
 														<li>
-																<a href="#">My Perfil</a>
+																<a href="#">Mi Perfil</a>
 														</li>
 														<li>
 																<a href="#">Editar Perfil</a>
 														</li>
+														<li>
+															<a href="{{ route('logout') }}"
+																	onclick="event.preventDefault();
+																					 document.getElementById('logout-form').submit();">
+																					 Cerrar sesión
+															</a>
+															<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+																	{{ csrf_field() }}
+															</form>
+														</li>
+
 														</ul>
 										</div>
 								</div>
@@ -95,6 +117,13 @@
 												</ul>
 										</div>
 								</li>
+
+								<li>
+										<a href="/blog/public/dependece">
+												<i class="material-icons">location_city</i>
+												<p>Dependencias</p>
+										</a>
+								</li>
 								@endif
 
 								@if(Auth::user()->type == 'analista')
@@ -160,6 +189,18 @@
 										</a>
 								</li>
 								 @endif
+
+								 <li>
+									 <a href="{{ route('logout') }}"
+											 onclick="event.preventDefault();
+																document.getElementById('logout-form').submit();">
+																<i class="material-icons">indeterminate_check_box</i>
+																<p>Cerrar sesión</p>
+									 </a>
+									 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+											 {{ csrf_field() }}
+									 </form>
+ 								</li>
 
 						</ul>
 				</div>

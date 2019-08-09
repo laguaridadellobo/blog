@@ -72,7 +72,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Su CURP</label>
-                                    <input type="text" class="form-control border-input" name="curp" value="{{$user->curp}}" disabled="" >
+                                    <input type="text" class="form-control border-input" style="text-transform:uppercase;"  name="curp" value="{{$user->curp}}" disabled="" >
                                 </div>
                             </div>
                             <div class="col-md-6">

@@ -35,7 +35,7 @@
                             <div class="info info-horizontal">
                               <div class="card-image" data-header-animation="true">
 
-                                        <img class="img" src="{{asset('assets/img/24_2.png') }}">
+                                        <img class="img" src="{{asset('public/assets/img/24_2.png') }}">
 
                               <div class="ripple-container"></div></div>
                             </div>

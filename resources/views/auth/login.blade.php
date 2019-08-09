@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="wrapper wrapper-full-page">
-    <div class="full-page login-page" filter-color="black" data-image="{{asset('assets/img/login.jpg')}}">
+    <div class="full-page login-page" filter-color="" data-image="{{asset('public/assets/img/login.jpg')}}">
         <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
         <div class="content">
             <div class="container">
@@ -54,12 +54,12 @@
                                       ¿Olvidaste tu Contraseña?
                                       </p>
                                     </a>
+                                    </p>
 
 
 
 
                                 <div class="footer text-center">
-
                                     <button type="submit" class="btn btn-success btn-fill btn-wd btn-lg">Iniciar</button>
                                 </div>
                             </div>
@@ -68,32 +68,7 @@
                 </div>
             </div>
         </div>
-        <footer class="footer">
-            <div class="container">
-                <nav class="pull-left">
-                  <ul>
-                      <li>
-                          <a href="#">
-                              Inicio
-                          </a>
-                      </li>
-                      <li>
-                          <a href="#">
-                              Registro
-                          </a>
-                      </li>
-                      <li>
-                    </ul>
-                </nav>
-                <p class="copyright pull-right">
-                    &copy;
-                    <script>
-                        document.write(new Date().getFullYear())
-                    </script>
-                    <a href="http://www.cemer.com/">Comisión Estatal de la Mejora Regulatoria</a>
-                </p>
-            </div>
-        </footer>
+
     </div>
 </div>
 @endsection

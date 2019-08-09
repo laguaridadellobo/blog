@@ -49,6 +49,16 @@
 
 
 
+              
+
+                @if($typefunction =='catalogo')
+                <div class="row">
+								<div class="col-sm-12">
+                  <a class="btn btn-success pull-right" href="{{route(''.$model.'.create')}}">Nueva {{$type}}<i class="material-icons">add</i></a>
+								</div>
+							</div>
+                @endif
+
   							<div class="row">
   								<div class="col-sm-12">
   									<div class="table-responsive">
@@ -60,9 +70,16 @@
 		 @foreach($columns as $id => $value)
 		<th>{{ $id }}</th>
 		 @endforeach
-		 		<th>Status</th>
-         <th>Archivos</th>
 
+     @if($typefunction != 'catalogo')
+		 		<th>Status</th>
+      @endif
+      @if($typefunction !='catalogo')
+         <th>Archivos</th>
+      @endif
+      @if($typefunction =='catalogo')
+         <th>Acción</th>
+      @endif
    </tr>
  </thead>
  <tbody>
@@ -71,7 +88,7 @@
 				 @foreach($columns as $id => $value)
  					<td>{{ $entity->$value }}</td>
  					@endforeach
-
+          @if($typefunction != 'catalogo')
 					<td class="">
 						@if($entity->proceed == '0')
 						<button type="button" class="btn btn-danger" style="padding:12px 2px;" >Pendiente|Analista</button>
@@ -86,16 +103,23 @@
 						<button type="button" class="btn btn-success" style="padding:12px 2px;" >Finalizado</button>
 						@endif
 					</td>
-
+          @endif
 					<td class="">
 								<!--	<a class="btn btn-success" href="/system/{{$model}}/{{ $entity->id }}/edit">Editar</a> -->
                 <div class="card-avatar">
+                  @if($typefunction != 'catalogo')
                   <a href="#">
 											<button type="button" class="btn btn-success btn-lg" style="padding:12px 24px;" data-toggle="modal" data-target="#{{ $entity->id }}" >Archivo</button>
 									</a>
+                  @endif
 
+                  @if($typefunction == 'catalogo')
 
-									<!-- Modal Archvo-->
+											<a type="button" class="btn btn-success btn-lg" style="padding:12px 24px;" href="/blog/public/{{$model}}/{{ $entity->id }}/edit"> Detalle</a>
+
+                  @endif
+
+									<!-- Modal Archivo-->
 								  <div class="modal fade" id="{{ $entity->id }}" role="dialog">
 								    <div class="modal-dialog">
 

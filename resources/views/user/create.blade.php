@@ -49,7 +49,7 @@
         <div class="col-sm-8 col-sm-offset-2">
             <!--      Wizard container        -->
             <div class="wizard-container">
-                <div class="card wizard-card" data-color="rose" id="wizardProfile">
+                <div class="card wizard-card" data-color="" id="wizardProfile">
                     <form action="/blog/public/user" method="POST" enctype="multipart/form-data">
                       {{csrf_field()}}
 

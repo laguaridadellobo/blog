@@ -24,7 +24,7 @@ class ProtestController extends Controller
      public function __construct()
      {
          $this->middleware('auth');
-        
+
      }
 
     public function index()
@@ -39,6 +39,7 @@ class ProtestController extends Controller
         'highusers' => $depence,
         'type' => "Usuario | Protesta",
         'model' => "protest",
+        'typefunction' => "normal",
         'id' => "idh",
         'text_section' => "Vista de usuario",
         'columns' => [
@@ -61,6 +62,7 @@ class ProtestController extends Controller
         'highusers' => $depence,
         'type' => "Protesta",
         'model' => "protest",
+        'typefunction' => "normal",
         'id' => "idh",
         'text_section' => "Vista de usuario",
         'columns' => [
@@ -84,6 +86,7 @@ class ProtestController extends Controller
         'highusers' => $depence,
         'type' => "ANALISTA | Protesta",
         'model' => "protest",
+        'typefunction' => "normal",
         'id' => "idh",
         'text_section' => "Vista de usuario",
         'columns' => [
@@ -111,6 +114,7 @@ class ProtestController extends Controller
         'highusers' => $depence,
         'type' => "Enlace | Protesta",
         'model' => "protest",
+        'typefunction' => "normal",
         'id' => "idh",
         'text_section' => "Vista de usuario",
         'columns' => [
