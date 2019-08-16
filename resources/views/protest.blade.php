@@ -77,16 +77,39 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Titulo</label>
+                                    <label for="exampleInputEmail1">Nombre o tipo de tramite</label>
                                     <input type="text" class="form-control border-input"  name="title" value="{{old('title')}}" required>
                                 </div>
                             </div>
                         </div>
 
                         <div class="row">
+
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Departamento</label>
+                                    <label>Nombre en contra de quien se presenta la protesta</label>
+                                    <input type="text" class="form-control border-input" style="text-transform:uppercase;"  name="nombrevs" value="" >
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Cargo</label>
+                                    <input type="text" class="form-control border-input" style="text-transform:uppercase;"  name="cargo" value=""  >
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Dependencia / Organizacion</label>
                                         <select class="selectpicker " data-style="select-with-transition"  data-live-search="true" name="departament" value="{{old('departament')}}" title="Seleccione una Dependencia" required>
                                             @foreach($highusers->all() as $highuser)
                                             <option>{{$highuser->nombre}}</option>
@@ -94,6 +117,23 @@
                                         </select>
                                 </div>
                             </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Municipio</label>
+                                        <select class="selectpicker " data-style="select-with-transition"  data-live-search="true" name="munipality" value="{{old('munipality')}}" title="Seleccione el Municipio" required>
+                                            @foreach($municipalitys->all() as $municipality)
+                                            <option>{{$municipality->name}}</option>
+                                            @endforeach
+                                        </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Domicilio, calle, numero</label>
+                                    <input type="text" class="form-control border-input" style="text-transform:uppercase;"  name="address" value=""  >
+                                </div>
+                            </div>
+
                             <div class="col-md-6">
                                 <label>Tipo de persona</label>
                                 <div class="radio">
@@ -109,11 +149,11 @@
                             </div>
                         </div>
                         <div class="row">
-                          <div class="col-md-6 col-sm-2">
+                          <div class="col-md-4 col-sm-2">
                               <legend>Identificacion</legend>
                               <div class="fileinput fileinput-new text-center" data-provides="fileinput">
                                   <div class="fileinput-new thumbnail">
-                                      <img src="{{asset('assets/img/imagen.png') }}" alt="..." style="width:100px; height:100px;">
+                                      <img src="{{asset('public/assets/img/imagen.png') }}" alt="..." style="width:100px; height:100px;">
                                   </div>
                                   <div class="fileinput-preview fileinput-exists thumbnail"></div>
                                   <div>
@@ -127,11 +167,11 @@
                               </div>
                           </div>
 
-                          <div class="col-md-6 col-sm-2">
+                          <div class="col-md-4 col-sm-2">
                               <legend>Documento</legend>
                               <div class="fileinput fileinput-new text-center" data-provides="fileinput">
                                   <div class="fileinput-new thumbnail">
-                                      <img src="{{asset('assets/img/pdf.png') }}" style="width:100px; height:100px;">
+                                      <img src="{{asset('public/assets/img/pdf.png') }}" style="width:100px; height:100px;">
                                   </div>
                                   <div class="fileinput-preview fileinput-exists thumbnail"></div>
                                   <div>
@@ -139,6 +179,24 @@
                                           <span class="fileinput-new">Seleccionar Documento</span>
                                           <span class="fileinput-exists">Cambiar</span>
                                           <input type="file" name="document" required />
+                                      </span>
+                                      <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Eliminar</a>
+                                  </div>
+                              </div>
+                          </div>
+
+                          <div class="col-md-4 col-sm-2">
+                              <legend>Documentos Probatorios</legend>
+                              <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                                  <div class="fileinput-new thumbnail">
+                                      <img src="{{asset('public/assets/img/docevidencia.jpg') }}" style="width:100px; height:100px;">
+                                  </div>
+                                  <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                                  <div>
+                                      <span class="btn btn-gray btn-round btn-file">
+                                          <span class="fileinput-new">Seleccionar Documento</span>
+                                          <span class="fileinput-exists">Cambiar</span>
+                                          <input type="file" name="documentprobatory" required />
                                       </span>
                                       <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Eliminar</a>
                                   </div>
@@ -153,7 +211,7 @@
                             </div>
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="btn btn-success btn-fill btn-wd">Enviar Protesta  </button>
+                            <button type="submit" class="btn btn-success btn-fill btn-wd">Enviar Protesta</button>
                         </div>
                         <div class="clearfix"></div>
                     </form>

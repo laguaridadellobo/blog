@@ -34,7 +34,8 @@ class UserController extends Controller
        'data' => $highusers,
        'highusers' => $depence,
        'type' => "Usuario | Protesta",
-       'model' => "protest",
+       'model' => "user",
+       'typefunction' => "catalogo",
        'id' => "idh",
        'text_section' => "Vista de usuario",
        'columns' => [
@@ -123,7 +124,11 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+
+      $var = User::find($id);
+      $typeauth = Auth::user()->type;
+      return view('user.edit',['var'=>$var,
+                              'typeauth'=>$typeauth,]);
     }
 
     /**
@@ -135,7 +140,46 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+      $user = User::where('id', $id);
+
+
+      if ( Auth::user()->type == "admin" and $request->password != NULL)
+      {
+
+        $user->update([
+
+          'curp' => $request->curp,
+          'name' => $request->name,
+          'email' => $request->email,
+          'phone' => $request->phone,
+              ]);
+      }
+
+
+      if ($request->password == NULL) {
+      $user->update([
+
+        'email' => $request->email,
+        'phone' => $request->phone,
+
+
+            ]);
+      }
+      if ($request->password != NULL ){
+
+        $user->update([
+
+          'email' => $request->email,
+          'phone' => $request->phone,
+          'password' => bcrypt($request->password),
+
+
+              ]);
+
+      }
+      return back()->with('msg', 'Se actualizo con exito su información ');
+    //  return redirect('/protest/create')->with('msg', 'Se actualizo con exito su información ');
     }
 
     /**

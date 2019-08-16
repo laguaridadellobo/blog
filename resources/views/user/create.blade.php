@@ -50,7 +50,7 @@
             <!--      Wizard container        -->
             <div class="wizard-container">
                 <div class="card wizard-card" data-color="" id="wizardProfile">
-                    <form action="/blog/public/user" method="POST" enctype="multipart/form-data">
+                    <form action="/blog/user" method="POST" enctype="multipart/form-data">
                       {{csrf_field()}}
 
                         <!--        You can switch " data-color="purple" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
@@ -86,7 +86,7 @@
                                     <div class="col-sm-4 col-sm-offset-1">
                                         <div class="picture-container">
                                             <div class="picture">
-                                                <img src="{{ asset ('assets/img/24_2.png')}}" class="picture" id="wizardPicturePreview" title="" />
+                                                <img src="{{ asset ('public/assets/img/24_2.png')}}" class="picture" id="wizardPicturePreview" title="" />
                                             </div>
                                         </div>
                                     </div>

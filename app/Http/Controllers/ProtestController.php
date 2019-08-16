@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Protest;
 use App\Dependence;
 use App\User;
+use App\Municipality;
 use Session;
 use App\Http\Requests;
 use Validator;
@@ -137,10 +138,21 @@ class ProtestController extends Controller
     public function create()
 
     {
+      if(Auth::user()->phone == NULL)
+      {
+        return redirect('user/'.Auth::User()->id.'/edit')->with('status','Es necesario su numero telefonico antes de realizar una nueva protesta por favor verificalos '.Auth::User()->name);
+      }
+      else {
+
+
       $highusers = Dependence::all();
+      $municipalitys = Municipality::orderby('name','asc')->get();
       $user = User::Where('id', Auth::User()->id )->first();
       return view('protest', ['user'=>$user,
-                              'highusers'=>$highusers,]);
+                              'highusers'=>$highusers,
+                              'municipalitys'=>$municipalitys,
+                              ]);
+      }
     }
 
     /**

@@ -33,7 +33,7 @@
 																<a href="#">Mi Perfil</a>
 														</li>
 														<li>
-																<a href="#">Editar Perfil</a>
+																<a href="/blog/user/{{Auth::user()->id}}/edit">Editar Perfil</a>
 														</li>
 														<li>
 															<a href="{{ route('logout') }}"
@@ -80,20 +80,20 @@
 							-->
 								@if(Auth::user()->type == 'admin')
 								<li>
-										<a href="/blog/public/protest/create">
+										<a href="/blog/protest/create">
 												<i class="material-icons">date_range</i>
 												<p>Nueva Protesta</p>
 										</a>
 								</li>
 
 								<li>
-										<a href="/blog/public/turnado">
+										<a href="/blog/turnado">
 												<i class="material-icons">offline_pin</i>
 												<p>Protesta Atendidas</p>
 										</a>
 								</li>
 								<li>
-										<a href="/blog/public/noturnado">
+										<a href="/blog/noturnado">
 												<i class="material-icons">clear</i>
 												<p>Improcedentes</p>
 										</a>
@@ -109,17 +109,17 @@
 										<div class="collapse" id="pagesExamples">
 												<ul class="nav">
 														<li>
-																<a href="/blog/public/user/create">Nuevo usuario</a>
+																<a href="/blog/user/create">Nuevo usuario</a>
 														</li>
 														<li>
-																<a href="/blog/public/user">Todos los usuarios</a>
+																<a href="/blog/user">Todos los usuarios</a>
 														</li>
 												</ul>
 										</div>
 								</li>
 
 								<li>
-										<a href="/blog/public/dependece">
+										<a href="/blog/dependece">
 												<i class="material-icons">location_city</i>
 												<p>Dependencias</p>
 										</a>
@@ -128,19 +128,19 @@
 
 								@if(Auth::user()->type == 'analista')
 								<li>
-										<a href="/blog/public/home">
+										<a href="/blog/home">
 												<i class="material-icons">date_range</i>
 												<p>Todas las Protesta</p>
 										</a>
 								</li>
 								<li>
-										<a href="/blog/public/turnado">
+										<a href="/blog/turnado">
 												<i class="material-icons">offline_pin</i>
 												<p>Protesta Atendidas</p>
 										</a>
 								</li>
 								<li>
-										<a href="/blog/public/noturnado">
+										<a href="/blog/noturnado">
 												<i class="material-icons">clear</i>
 												<p>Improcedentes</p>
 										</a>
@@ -149,25 +149,25 @@
 
 								@if(Auth::user()->type == 'enlace')
 								<li>
-										<a href="/blog/public/home">
+										<a href="/blog/home">
 												<i class="material-icons">date_range</i>
 												<p>Todas las Protesta Recibidas</p>
 										</a>
 								</li>
 								<li>
-										<a href="/blog/public/turnado">
+										<a href="/blog/turnado">
 												<i class="material-icons">offline_pin</i>
 												<p>Protesta Atendidas</p>
 										</a>
 								</li>
 								<li>
-										<a href="/blog/public/vence">
+										<a href="/blog/vence">
 												<i class="material-icons">alarm</i>
 												<p>Por vencer</p>
 										</a>
 								</li>
 								<li>
-										<a href="/blog/public/noturnado">
+										<a href="/blog/noturnado">
 												<i class="material-icons">report_off</i>
 												<p>No atendidas</p>
 										</a>
@@ -177,13 +177,13 @@
 
 								@if(Auth::user()->type == 'user')
 							<li>
-									<a href="/blog/public/protest/create">
+									<a href="/blog/protest/create">
 											<i class="material-icons">date_range</i>
 											<p>Nueva Protesta</p>
 									</a>
 							</li>
 								<li>
-										<a href="/blog/public/protest">
+										<a href="/blog/protest">
 												<i class="material-icons">date_range</i>
 												<p>Mis Protestas</p>
 										</a>

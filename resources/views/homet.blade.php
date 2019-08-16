@@ -49,7 +49,7 @@
 
 
 
-              
+
 
                 @if($typefunction =='catalogo')
                 <div class="row">
@@ -115,7 +115,7 @@
 
                   @if($typefunction == 'catalogo')
 
-											<a type="button" class="btn btn-success btn-lg" style="padding:12px 24px;" href="/blog/public/{{$model}}/{{ $entity->id }}/edit"> Detalle</a>
+											<a type="button" class="btn btn-success btn-lg" style="padding:12px 24px;" href="/blog/{{$model}}/{{ $entity->id }}/edit"> Detalle</a>
 
                   @endif
 
