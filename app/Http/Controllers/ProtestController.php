@@ -238,6 +238,7 @@ class ProtestController extends Controller
         'highusers' => $depence,
         'type' => "ANALISTA | Protestas Atendida",
         'model' => "protest",
+        'typefunction' => "normal",
         'id' => "idh",
         'text_section' => "Vista de usuario",
         'columns' => [
@@ -259,6 +260,7 @@ class ProtestController extends Controller
         'highusers' => $depence,
         'type' => "Enlace | Protestas Atendida",
         'model' => "protest",
+        'typefunction' => "normal",
         'id' => "idh",
         'text_section' => "Vista de usuario",
         'columns' => [
@@ -286,6 +288,7 @@ class ProtestController extends Controller
       'highusers' => $depence,
       'type' => "ANALISTA | Protestas No Atendida",
       'model' => "protest",
+      'typefunction' => "normal",
       'id' => "idh",
       'text_section' => "Vista de usuario",
       'columns' => [
@@ -314,6 +317,7 @@ class ProtestController extends Controller
         'highusers' => $depence,
         'type' => "ANALISTA | Protestas No Atendida",
         'model' => "protest",
+        'typefunction' => "normal",
         'id' => "idh",
         'text_section' => "Vista de usuario",
         'columns' => [
@@ -345,6 +349,7 @@ class ProtestController extends Controller
       'highusers' => $depence,
       'type' => "ENLACE | Protestas proxima",
       'model' => "protest",
+      'typefunction' => "normal",
       'id' => "idh",
       'text_section' => "Vista de usuario",
       'columns' => [
