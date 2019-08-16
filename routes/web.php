@@ -24,6 +24,12 @@ Route::get('/vence', 'ProtestController@vence')->middleware('revalidate');
 Route::resource('/user', 'UserController')->middleware('revalidate');
 Route::resource('/dependece', 'DependenceController')->middleware('revalidate');
 
+Route::get('dropdown', function(){
+	$id = Input::get('option');
+	$procesos = Empresa::find($id)->procesos;
+	return $procesos->lists('proceso', 'id');
+});
+
 
 
 

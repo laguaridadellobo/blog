@@ -29,9 +29,7 @@
 										</a>
 										<div class="collapse" id="collapseExample">
 												<ul class="nav">
-														<li>
-																<a href="#">Mi Perfil</a>
-														</li>
+													
 														<li>
 																<a href="/blog/user/{{Auth::user()->id}}/edit">Editar Perfil</a>
 														</li>

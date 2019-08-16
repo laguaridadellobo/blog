@@ -79,6 +79,12 @@
                                     <input type="text" class="form-control border-input"  name="name" value="" required>
                                 </div>
                             </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Codigo Postal</label>
+                                    <input type="text" class="form-control border-input"  name="cp" value="" required>
+                                </div>
+                            </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Dirección</label>
