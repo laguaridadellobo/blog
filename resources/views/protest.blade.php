@@ -72,7 +72,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Su CURP</label>
-                                    <input type="text" class="form-control border-input" style="text-transform:uppercase;"  name="curp" value="{{$user->curp}}" disabled="" >
+                                    <input type="text" class="form-control border-input" style="text-transform:uppercase;"  name="curp" value="" disabled="" >
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -116,8 +116,8 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Dependencia / Organizacion</label>
-                                        <select class="selectpicker " data-style="select-with-transition"  data-live-search="true" name="departament" id="departament"  required>
-                                          <option value=""></option>
+                                        <select class="form-control" data-style="select-with-transition" name="departament" id="departament" data-live-search="true" required reset>
+                                          <option>Digite el Codigo Postal</option>
                                         </select>
                                 </div>
                             </div>
@@ -239,8 +239,9 @@ function validateForm() {
     $.get('/blog/ajax-subcat?cp_id=' + cp_id, function(data){
       //success data
       $('#departament').empty();
-      $.each(data, function(index, element){
-        $('#departament').append('<option value="'+element.id+'">'+element.nombre+'</option>');
+      $.each(data, function(index, subcatObj){
+
+        $('#departament').append('<option value="'+subcatObj.id+'">'+subcatObj.nombre+'</option>');
       });
 
     });

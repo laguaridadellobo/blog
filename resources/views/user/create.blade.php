@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+@unless (Auth::check())
+    No has iniciado sesión.
+@endunless
 <input type="hidden" class="type_form" value="">
 <div class="content">
   <div class="container-fluid">

@@ -14,6 +14,7 @@ use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Input;
 use App\Municipality;
 use App\Dependence;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -27,16 +28,14 @@ Route::get('/vence', 'ProtestController@vence')->middleware('revalidate');
 Route::resource('/user', 'UserController')->middleware('revalidate');
 Route::resource('/dependece', 'DependenceController')->middleware('revalidate');
 
+//Route::get('ajax-subcat','ProtestController@subcat');
 
 Route::get('ajax-subcat',function(){
    $cp_id = Input::get('cp_id');
 
    $muni = Municipality::select('id')->where('cp', '=', $cp_id)->first();
    $pro = Dependence::where('municipality_id','=',$muni->id)->get();
-   return Response::eloquent($pro->get(['id','nombre']));
-   //return Response::json($pro);
-
-
+   return Response::json($pro);
 });
 
 

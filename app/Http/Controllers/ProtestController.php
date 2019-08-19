@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use App\Protest;
 use App\Dependence;
@@ -149,7 +150,6 @@ class ProtestController extends Controller
       $user = User::Where('id', Auth::User()->id )->first();
       return view('protest', ['user'=>$user,
                               'highusers'=>$highusers,
-                              
                               ]);
       }
     }
@@ -413,5 +413,15 @@ class ProtestController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function subcat(Request $request)
+    {
+      $cp_id = Input::get('cp_id');
+
+      $muni = Municipality::select('id')->where('cp', '=', $cp_id)->first();
+      $pro = Dependence::where('municipality_id','=',$muni->id)->get();
+      return response()->json($pro);
+
     }
 }
