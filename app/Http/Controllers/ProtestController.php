@@ -146,11 +146,10 @@ class ProtestController extends Controller
 
 
       $highusers = Dependence::all();
-      $municipalitys = Municipality::orderby('name','asc')->get();
       $user = User::Where('id', Auth::User()->id )->first();
       return view('protest', ['user'=>$user,
                               'highusers'=>$highusers,
-                              'municipalitys'=>$municipalitys,
+                              
                               ]);
       }
     }

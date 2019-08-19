@@ -107,26 +107,21 @@
                         </div>
 
                         <div class="row">
+                          <div class="col-md-6">
+                              <div class="form-group">
+                                  <label>Codigo Postal de la Dependencia</label>
+                                  <input type="text" class="form-control border-input" name="cp" id="cp" value=""  >
+                              </div>
+                          </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Dependencia / Organizacion</label>
-                                        <select class="selectpicker " data-style="select-with-transition"  data-live-search="true" name="departament" value="{{old('departament')}}" title="Seleccione una Dependencia" required>
-                                            @foreach($highusers->all() as $highuser)
-                                            <option>{{$highuser->nombre}}</option>
-                                            @endforeach
+                                        <select class="selectpicker " data-style="select-with-transition"  data-live-search="true" name="departament" id="departament"  required>
+                                          <option value=""></option>
                                         </select>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Municipio</label>
-                                        <select class="selectpicker " data-style="select-with-transition"  data-live-search="true" name="munipality" value="{{old('munipality')}}" title="Seleccione el Municipio" required>
-                                            @foreach($municipalitys->all() as $municipality)
-                                            <option>{{$municipality->name}}</option>
-                                            @endforeach
-                                        </select>
-                                </div>
-                            </div>
+
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Domicilio, calle, numero</label>
@@ -233,9 +228,24 @@ function validateForm() {
   }
 }
 </script>
+
 <script>
-  $.validate({
-    modules: 'file'
+  $('#cp').on('change',function(e){
+    console.log(e);
+    var cp_id = e.target.value;
+
+    //Ajax
+
+    $.get('/blog/ajax-subcat?cp_id=' + cp_id, function(data){
+      //success data
+      $('#departament').empty();
+      $.each(data, function(index, element){
+        $('#departament').append('<option value="'+element.id+'">'+element.nombre+'</option>');
+      });
+
+    });
+
   });
+
 </script>
 @endsection
