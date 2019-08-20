@@ -29,7 +29,7 @@
 										</a>
 										<div class="collapse" id="collapseExample">
 												<ul class="nav">
-													
+
 														<li>
 																<a href="/blog/user/{{Auth::user()->id}}/edit">Editar Perfil</a>
 														</li>
@@ -187,7 +187,12 @@
 										</a>
 								</li>
 								 @endif
-
+								 <li>
+										 <a href="/blog/protest/create">
+												 <i class="material-icons">notification_important</i>
+												 <p>Notificaciónes </p>
+										 </a>
+								 </li>
 								 <li>
 									 <a href="{{ route('logout') }}"
 											 onclick="event.preventDefault();
