@@ -52,6 +52,10 @@
                   <div class="col-md-8 col-md-offset-4">
                     <h3>Nueva Protesta</h3>
                   </div>
+                  <div class="col-md-12 ">
+                    <h6>Los datos marcados con (*) son obligatarios.</h6>
+                  </div>
+
 
 
                 <div class="panel-body">
@@ -71,13 +75,13 @@
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Su CURP</label>
-                                    <input type="text" class="form-control border-input" style="text-transform:uppercase;"  name="curp" value="" disabled="" >
+                                    <label>Este es tu CURP {{$user->name}}</label>
+                                    <input type="text" class="form-control border-input" style="text-transform:uppercase;"  name="curp" value="{{$user->curp}}" disabled="" >
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Nombre o tipo de tramite</label>
+                                    <label for="exampleInputEmail1">Nombre o tipo de tramite (*)</label>
                                     <input type="text" class="form-control border-input"  name="title" value="{{old('title')}}" required>
                                 </div>
                             </div>
@@ -88,13 +92,13 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Nombre en contra de quien se presenta la protesta</label>
-                                    <input type="text" class="form-control border-input" style="text-transform:uppercase;"  name="nombrevs" value="" >
+                                    <input type="text" class="form-control border-input" style="text-transform:uppercase;"  name="nombrevs" value="{{old('nombrevs')}}" >
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Cargo</label>
-                                    <input type="text" class="form-control border-input" style="text-transform:uppercase;"  name="cargo" value=""  >
+                                    <input type="text" class="form-control border-input" style="text-transform:uppercase;"  name="cargo" value="{{old('cargo')}}"  >
                                 </div>
                             </div>
 
@@ -107,30 +111,39 @@
                         </div>
 
                         <div class="row">
+
                           <div class="col-md-6">
-                              <div class="form-group">
-                                  <label>Codigo Postal de la Dependencia</label>
-                                  <input type="text" class="form-control border-input" name="cp" id="cp" value=""  >
-                              </div>
+                            <div class="form-group">
+                                <label>Municipio de la dependencia (*)</label>
+                              <select class="form-control selectpicker" data-style="select-with-transition" data-live-search="true" name="cp" id="cp" value="{{old('cp')}}" required>
+                                        <option>Seleccione un municipio</option>
+                                                @foreach($muni->all() as $mun)
+                                                <option value="{{$mun->name}}">{{$mun->name}}</option>
+                                                @endforeach
+                              </select>
+                            </div>
+
                           </div>
+
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Dependencia / Organizacion</label>
-                                        <select class="form-control" data-style="select-with-transition" name="departament" id="departament" data-live-search="true" required reset>
-                                          <option>Digite el Codigo Postal</option>
+                                    <label>Dependencia / Organizacion (*)</label>
+                                        <select class="form-control" data-style="select-with-transition" name="departament" id="departament" value="{{old('departament')}}" required>
+                                          <option>Antes seleccione un municipio</option>
                                         </select>
                                 </div>
                             </div>
 
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Domicilio, calle, numero</label>
-                                    <input type="text" class="form-control border-input" style="text-transform:uppercase;"  name="address" value=""  >
-                                </div>
-                            </div>
 
-                            <div class="col-md-6">
-                                <label>Tipo de persona</label>
+
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6 col-sm-4">
+
+
+                          <div class="col-md-12 col-md-10">
+                              <div class="col-md-10 col-md-offset-12">
+                                <label>Tipo de persona (*)</label>
                                 <div class="radio">
                                     <label>
                                         <input type="radio" name="juridic"  value="Juridica" required> Juridica
@@ -141,11 +154,15 @@
                                         <input type="radio" name="juridic"  value="Fisica"> Fisica
                                     </label>
                                 </div>
-                            </div>
+                              </div>
+
+
+                          </div>
                         </div>
+                          </div>
                         <div class="row">
                           <div class="col-md-4 col-sm-2">
-                              <legend>Identificacion</legend>
+                              <legend>Identificacion (*)</legend>
                               <div class="fileinput fileinput-new text-center" data-provides="fileinput">
                                   <div class="fileinput-new thumbnail">
                                       <img src="{{asset('public/assets/img/imagen.png') }}" alt="..." style="width:100px; height:100px;">
@@ -163,7 +180,7 @@
                           </div>
 
                           <div class="col-md-4 col-sm-2">
-                              <legend>Documento</legend>
+                              <legend>Documento (*)</legend>
                               <div class="fileinput fileinput-new text-center" data-provides="fileinput">
                                   <div class="fileinput-new thumbnail">
                                       <img src="{{asset('public/assets/img/pdf.png') }}" style="width:100px; height:100px;">
@@ -191,7 +208,7 @@
                                       <span class="btn btn-gray btn-round btn-file">
                                           <span class="fileinput-new">Seleccionar Documento</span>
                                           <span class="fileinput-exists">Cambiar</span>
-                                          <input type="file" name="documentprobatory" required />
+                                          <input type="file" name="documentp"/>
                                       </span>
                                       <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Eliminar</a>
                                   </div>
@@ -210,6 +227,7 @@
                         </div>
                         <div class="clearfix"></div>
                     </form>
+
 
                 </div>
             </div>
@@ -241,7 +259,7 @@ function validateForm() {
       $('#departament').empty();
       $.each(data, function(index, subcatObj){
 
-        $('#departament').append('<option value="'+subcatObj.id+'">'+subcatObj.nombre+'</option>');
+        $('#departament').append('<option value="'+subcatObj.nombre+'">'+subcatObj.nombre+'</option>');
       });
 
     });

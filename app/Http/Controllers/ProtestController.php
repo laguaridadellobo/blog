@@ -147,9 +147,12 @@ class ProtestController extends Controller
 
 
       $highusers = Dependence::all();
+      $muni = Municipality::select('name')->get();
+
       $user = User::Where('id', Auth::User()->id )->first();
       return view('protest', ['user'=>$user,
                               'highusers'=>$highusers,
+                              'muni' => $muni,
                               ]);
       }
     }
@@ -162,33 +165,40 @@ class ProtestController extends Controller
      */
     public function store(Request $request)
     {
-
-
         $this->validate($request,[
+            'juridic' => 'required',
+            'departament' => 'required',
             'documentidentification' => 'image',
             'document' => 'required|mimes:pdf',
+            'documentp' => 'mimes:pdf',
           //'name'=>'required|regex:/^([A-Z]{1}[a-z\s]*)+$/',
           //'mail'=>'required|email|unique:enterprices',
           //'phone'=>'required|digits:10',
           //'rfc' => array('required',
           //'regex:/^[A-Z]{4}[0-9]{6}[A-Z,0-9]{3}$/'),
       ]);
-
-
         $document = $request->file('document')->store('public');
         $documentidentification = $request->file('documentidentification')->store('public');
-        $folio = uniqid();
-        $highuser= new Protest();
+        if($request->file('documentp') != NULL){
+          $documentp = $request->file('documentp')->store('public');
+        }
+          $folio = uniqid();
+          $highuser= new Protest();
           $highuser->curp = $request->curp;
           $highuser->title = $request->title;
-          $highuser->departament = $request->departament;
+          $highuser->nombrevs = $request->nombrevs;
+          $highuser->cargo = $request->cargo;
           $highuser->typeperson = $request->juridic;
+          $highuser->departament = $request->departament;
           $highuser->folio = $folio;
-          $highuser->user_id = Auth::user()->email;
+          $highuser->user_id = Auth::user()->id;
+          $highuser->mail = Auth::user()->email;
           $highuser->document = $document;
+          if($request->file('documentp') != NULL){
+            $highuser->documentp = $documentp;
+          }
           $highuser->documentidentification = $documentidentification;
           $date = Carbon::now();
-
           $enddate = $date->addDays(5);
           $date = $date->format('Y-m-d');
           $highuser->finish_at = $enddate;
@@ -418,8 +428,7 @@ class ProtestController extends Controller
     public function subcat(Request $request)
     {
       $cp_id = Input::get('cp_id');
-
-      $muni = Municipality::select('id')->where('cp', '=', $cp_id)->first();
+      $muni = Municipality::where('name', '=',$cp_id)->first();
       $pro = Dependence::where('municipality_id','=',$muni->id)->get();
       return response()->json($pro);
 

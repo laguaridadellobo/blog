@@ -10,11 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-use GuzzleHttp\Client;
-use Illuminate\Support\Facades\Input;
-use App\Municipality;
-use App\Dependence;
-
+use GuzzleHttp\Client; // CHECK OUT
 Route::get('/', function () {
     return view('welcome');
 });
@@ -28,17 +24,7 @@ Route::get('/vence', 'ProtestController@vence')->middleware('revalidate');
 Route::resource('/user', 'UserController')->middleware('revalidate');
 Route::resource('/dependece', 'DependenceController')->middleware('revalidate');
 
-//Route::get('ajax-subcat','ProtestController@subcat');
-
-Route::get('ajax-subcat',function(){
-   $cp_id = Input::get('cp_id');
-
-   $muni = Municipality::select('id')->where('cp', '=', $cp_id)->first();
-   $pro = Dependence::where('municipality_id','=',$muni->id)->get();
-   return Response::json($pro);
-});
-
-
+Route::get('ajax-subcat','ProtestController@subcat')->middleware('revalidate');
 Route::get('/home2', function () {
     return view('home2');
 });
