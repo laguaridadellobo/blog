@@ -54,7 +54,7 @@ html { -webkit-text-size-adjust: none; -ms-text-size-adjust: none;}
                         <td align="left" valign="top">
                            <div style="height: 39px; line-height: 39px; font-size: 37px;">&nbsp;</div>
                            <a target="_blank" style="display: block; max-width: 128px;">
-                              <img src="{{asset('assets/img/logo2.png')}}" alt="img" width="128" border="0" style="display: block; width: 128px;" />
+                              <img src="{{asset('public/assets/img/logo2.png')}}" alt="img" width="128" border="0" style="display: block; width: 128px;" />
                            </a>
                            <div style="height: 73px; line-height: 73px; font-size: 71px;">&nbsp;</div>
                         </td>
@@ -62,7 +62,7 @@ html { -webkit-text-size-adjust: none; -ms-text-size-adjust: none;}
 												<td align="right" valign="top">
 													 <div style="height: 39px; line-height: 39px; font-size: 37px;">&nbsp;</div>
 													 <a target="_blank" style="display: block; max-width: 128px;">
-															<img src="{{asset('assets/img/txt.png')}}" alt="img" width="128" border="0" style="display: block; width: 128px;" />
+															<img src="{{asset('public/assets/img/txt.png')}}" alt="img" width="128" border="0" style="display: block; width: 128px;" />
 													 </a>
 													 <div style="height: 73px; line-height: 73px; font-size: 71px;">&nbsp;</div>
 												</td>
@@ -120,7 +120,7 @@ html { -webkit-text-size-adjust: none; -ms-text-size-adjust: none;}
                                     <td align="center" valign="top">
                                        <div style="height: 13px; line-height: 13px; font-size: 11px;">&nbsp;</div>
                                        <div style="display: block; max-width: 50px;">
-                                          <img src="{{asset('assets/img/rad.png')}}" alt="img" width="50" border="0" style="display: block; width: 50px;" />
+                                          <img src="{{asset('public/assets/img/rad.png')}}" alt="img" width="50" border="0" style="display: block; width: 50px;" />
                                        </div>
                                     </td>
                                  </tr>

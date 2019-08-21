@@ -252,7 +252,7 @@
   };
 
   var DismissReason = Object.freeze({
-    cancel: 'cancel',
+    cancel: 'cancelar',
     backdrop: 'overlay',
     close: 'close',
     esc: 'esc',
@@ -830,7 +830,7 @@
     confirmButtonAriaLabel: '',
     confirmButtonColor: null,
     confirmButtonClass: null,
-    cancelButtonText: 'Cancel',
+    cancelButtonText: 'Cancelar',
     cancelButtonAriaLabel: '',
     cancelButtonColor: null,
     cancelButtonClass: null,

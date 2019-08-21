@@ -75,7 +75,7 @@
     confirmButtonText: 'OK',
     confirmButtonColor: '#3085d6',
     confirmButtonClass: null,
-    cancelButtonText: 'Cancel',
+    cancelButtonText: 'Cancelar',
     cancelButtonColor: '#aaa',
     cancelButtonClass: null,
     buttonsStyling: true,

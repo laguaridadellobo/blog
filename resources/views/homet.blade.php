@@ -76,6 +76,7 @@
       @endif
       @if($typefunction !='catalogo')
          <th>Archivos</th>
+         <th>Desistir</th>
       @endif
       @if($typefunction =='catalogo')
          <th>Acción</th>
@@ -111,6 +112,13 @@
                   <a href="#">
 											<button type="button" class="btn btn-success btn-lg" style="padding:12px 24px;" data-toggle="modal" data-target="#{{ $entity->id }}" >Archivo</button>
 									</a>
+                  <td>
+                    <a href="#">
+  											<button onclick="demo.showSwal('warning-message-and-confirmation')" type="button" class="btn btn-warning btn-lg" style="padding:12px 24px;" data-toggle="modal_d" data-target="#{{ $entity->id }}" >
+                          <i class="material-icons">warning</i></button>
+  									</a>
+                  </td>
+
                   @endif
 
                   @if($typefunction == 'catalogo')

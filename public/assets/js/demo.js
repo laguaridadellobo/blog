@@ -801,18 +801,18 @@ demo = {
 
     	}else if(type == 'warning-message-and-confirmation'){
             swal({
-                    title: 'Are you sure?',
-                    text: "You won't be able to revert this!",
+                    title: '¿Estas seguro en decisitir?',
+                    text: "¡No podras devolver estos cambios!",
                     type: 'warning',
                     showCancelButton: true,
                     confirmButtonClass: 'btn btn-success',
                     cancelButtonClass: 'btn btn-danger',
-                    confirmButtonText: 'Yes, delete it!',
+                    confirmButtonText: 'Si, ¡Desisto!',
                     buttonsStyling: false
                 }).then(function() {
                   swal({
-                    title: 'Deleted!',
-                    text: 'Your file has been deleted.',
+                    title: '¡Eliminado!',
+                    text: 'Tu protesta ah sido desistida',
                     type: 'success',
                     confirmButtonClass: "btn btn-success",
                     buttonsStyling: false
@@ -820,7 +820,7 @@ demo = {
                 });
     	}else if(type == 'warning-message-and-cancel'){
             swal({
-                    title: 'Are you sure?',
+                    title: 'Tu estas Seguro',
                     text: 'You will not be able to recover this imaginary file!',
                     type: 'warning',
                     showCancelButton: true,
