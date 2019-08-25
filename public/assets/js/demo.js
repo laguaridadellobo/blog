@@ -792,8 +792,8 @@ demo = {
 
     	}else if(type == 'success-message'){
         	swal({
-                title: "Good job!",
-                text: "You clicked the button!",
+                title: "Lamentamos mucho que hayas desistido tu protesta!",
+                text: "Su protesta a finalizado",
                 buttonsStyling: false,
                 confirmButtonClass: "btn btn-success",
                 type: "success"

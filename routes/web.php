@@ -21,6 +21,7 @@ Route::resource('/protest', 'ProtestController')->middleware('revalidate');
 Route::get('/turnado', 'ProtestController@turnado')->middleware('revalidate');
 Route::get('/noturnado', 'ProtestController@noturnado')->middleware('revalidate');
 Route::get('/vence', 'ProtestController@vence')->middleware('revalidate');
+Route::put('/desistir', 'ProtestController@desistir')->middleware('revalidate');
 Route::resource('/user', 'UserController')->middleware('revalidate');
 Route::resource('/dependece', 'DependenceController')->middleware('revalidate');
 

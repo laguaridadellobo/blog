@@ -164,5 +164,8 @@
         demo.initMaterialWizard();
     });
 </script>
+<script type='text/javascript'>
+	document.oncontextmenu = function(){return false}
+</script>
 @yield('js')
 </html>

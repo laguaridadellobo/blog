@@ -48,6 +48,14 @@
   						<div class="card-content">
 
 
+                @if(count($data) == 0)
+                <div class="alert alert-warning">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    ATENCION!! AUN NO EXISTEN PROTESTAS, Captura tu nueva protesta con gusto,
+                    la atenderemos en un lapso maximo de 8 días habiles
+                </div>
+                @endif
+
 
 
 
@@ -67,9 +75,23 @@
 <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
  <thead>
    <tr>
+
+
+
+     @if($columns == null)
+     <div class="alert alert-warning">
+         <button type="button" class="close" data-dismiss="alert">&times;</button>
+         ATENCION!! AUN NO EXISTEN PROTESTAS, Captura tu nueva protesta con gusto,
+         la atenderemos en un lapso maximo de 8 días habiles
+     </div>
+     @endif
+
 		 @foreach($columns as $id => $value)
 		<th>{{ $id }}</th>
-		 @endforeach
+
+  	 @endforeach
+
+
 
      @if($typefunction != 'catalogo')
 		 		<th>Status</th>
@@ -84,10 +106,13 @@
    </tr>
  </thead>
  <tbody>
+
    @foreach($data as $entity)
        <tr>
+
 				 @foreach($columns as $id => $value)
  					<td>{{ $entity->$value }}</td>
+
  					@endforeach
           @if($typefunction != 'catalogo')
 					<td class="">
@@ -114,7 +139,7 @@
 									</a>
                   <td>
                     <a href="#">
-  											<button onclick="demo.showSwal('warning-message-and-confirmation')" type="button" class="btn btn-warning btn-lg" style="padding:12px 24px;" data-toggle="modal_d" data-target="#{{ $entity->id }}" >
+  											<button type="button" class="btn btn-warning btn-lg" style="padding:12px 24px;" data-toggle="modal1" data-target="#{{ $entity->id }}">
                           <i class="material-icons">warning</i></button>
   									</a>
                   </td>
@@ -158,7 +183,7 @@
 																			<select class="selectpicker " data-style="select-with-transition" name="departament" value="{{$entity->departament}}" title="{{$entity->departament}}" required>
 																					@foreach($highusers->all() as $highuser)
 																					<option>{{$highuser->nombre}}</option>
-																					@endforeach
+                                        	@endforeach
 																			</select>
 															</div>
 													</div>

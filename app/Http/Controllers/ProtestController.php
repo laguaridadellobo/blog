@@ -433,4 +433,11 @@ class ProtestController extends Controller
       return response()->json($pro);
 
     }
+    public function desistir(Request $request, $id){
+
+      $user = Protest::where('id', $id);
+      dd($user);
+      $user->update([
+        'proceed' => '4',]);
+    }
 }

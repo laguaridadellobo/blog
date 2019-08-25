@@ -67,14 +67,14 @@ class RegisterController extends Controller
       $curp = $data['curp'];
 
       $client = new Client();
-              $response = $client->request( 'POST', 'https://desabus.edomex.gob.mx/bussrv/sei/dkb_frRENAPO1.php/consulta',
+              $response = $client->request( 'POST', 'https://bus.edomex.gob.mx/bussrv/sei/dkb_frRENAPO1.php/consulta',
                     [
                     'headers' => [
                     'Content-Type' => 'application/json; charset=UTF8',
                                  ],
                      'auth'    => [
-                         'cmsreg',
-                         '#6G%ujo#'
+                         'C3m4MR3g',
+                         '(3^^@17R36'
                                   ],
                       'body'  =>
                       '  {
